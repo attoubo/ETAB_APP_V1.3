@@ -14,6 +14,7 @@ public class Main {
         // Obtenir la connexion depuis SingletonDataBase
         UtilisateurServiceImpl utilisateurService = new UtilisateurServiceImpl();
 
+
         // Méthode pour ajouter un nouvel utilisateur
         utilisateurService.ajouterUtilisateurParDefaut();
 
@@ -21,6 +22,8 @@ public class Main {
         gestionPrincip();
 
     }
+
+
 
 
 

@@ -36,8 +36,8 @@ public class Eleve extends Personne {
         return "Eleve{" +
                 "Nom='" + getNom() + '\'' +
                 ", Prenom='" + getPrenom() + '\'' +
-                "Date Naissance='" + getDateNaissance() + '\'' +
-                "Classe='" + classe + '\'' +
+                ", Date Naissance='" + getDateNaissance() + '\'' +
+                ", Classe='" + classe + '\'' +
                 ", Matricule='" + matricule + '\'' +
                 '}';
     }

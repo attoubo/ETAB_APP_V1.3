@@ -8,9 +8,9 @@ public class SingletonDataBase {
     //URL de connexion à la base de données etab_db
     private final static String URL="jdbc:mysql://localhost:3306/etab_db";
     //Nom d'utilisateur
-    private final static String USERNAME="";
+    private final static String USERNAME="root";
     // Mot de pass
-    private final static String PASSWORD="";
+    private final static String PASSWORD="admin";
 
     // Déclaration d'un objet connexion qui provient de java.sql.Connection
     public static Connection connection;

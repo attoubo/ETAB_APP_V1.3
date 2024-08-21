@@ -23,6 +23,7 @@ public class EleveServiceImpl implements IEleveService {
         this.eleveDao = new EleveDaoImpl();
     }
 
+
     @Override
     public Eleve add(Eleve eleve) {
         return eleveDao.ajouter(eleve);
@@ -35,12 +36,12 @@ public class EleveServiceImpl implements IEleveService {
 
     @Override
     public boolean delete(int id) {
-        return false;
+        return eleveDao.supprimer(id);
     }
 
     @Override
     public List<Eleve> getAll() {
-        return List.of();
+        return eleveDao.listeEleve();
     }
 
     @Override
@@ -50,7 +51,6 @@ public class EleveServiceImpl implements IEleveService {
 
 
     public static void gestionEleve(){
-
 
         boolean repeat = true;
 
@@ -66,8 +66,7 @@ public class EleveServiceImpl implements IEleveService {
                     repeat = false;
                     break;
                 case 2:
-//                    eleve.supprimer(null);
-                    System.out.println("Vous avez choisi l'option 2 : vous souhaitez supprimer un élève.");
+                    supprimerEleve();
                     break;
                 case 3:
                     System.out.println("Vous avez choisi l'option 3 : vous souhaitez Modifier les informations d'un élève.");
@@ -75,12 +74,12 @@ public class EleveServiceImpl implements IEleveService {
                     break;
                 case 4:
                     System.out.println("Vous avez choisi l'option 4 : vous souhaitez voir la liste des élèves.\n");
-//                    eleve.obtenirEleve();
+                    listerEleve();
                     break;
                 case 5:
                     System.out.println("Menu précédent !\n");
 //                    gestionPrincip();
-//                    repeat = false; // Pour sortir du sous-menu des élèves
+                    repeat = false; // Pour sortir du sous-menu des élèves
                     break;
                 case 0:
                     System.out.println("Aurevoir et a Bientot !");
@@ -94,6 +93,8 @@ public class EleveServiceImpl implements IEleveService {
 
 
 
+
+    // AJOUTER LA METHODE AJOUTERELEVE
     public static void ajouterEleve() {
         EleveServiceImpl eleveService = new EleveServiceImpl(connection);
 
@@ -148,6 +149,77 @@ public class EleveServiceImpl implements IEleveService {
             }
         }
     }
+
+
+
+
+
+    public static void supprimerEleve() {
+        EleveServiceImpl eleveService = new EleveServiceImpl(connection);
+        System.out.println("Vous avez choisi l'option 2 : vous souhaitez supprimer un élève.");
+        System.out.println("Veuillez entrer l'ID de l'élève à supprimer :");
+        int id = scanner.nextInt();
+        scanner.nextLine();  // Pour consommer la ligne restante
+
+        boolean eleveSupprime = eleveService.delete(id);
+
+        if (eleveSupprime) {
+            System.out.println("Élève avec l'ID " + id + " supprimé avec succès !");
+        } else {
+            System.out.println("Erreur lors de la suppression de l'élève avec l'ID " + id + ". Veuillez vérifier si cet ID existe.");
+        }
+    }
+
+
+
+
+    public static void  modifierEleve(){
+
+    }
+
+
+
+
+    public static void listerEleve() {
+        EleveServiceImpl eleveService = new EleveServiceImpl(connection);
+
+        System.out.println("Vous avez choisi l'option 4 : lister tous les élèves.");
+
+        List<Eleve> eleves = eleveService.getAll();
+
+        if (eleves.isEmpty()) {
+            System.out.println("Aucun élève trouvé.");
+        } else {
+            System.out.println("Liste des élèves :");
+            for (Eleve eleve : eleves) {
+                System.out.println(eleve);
+            }
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

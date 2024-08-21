@@ -76,7 +76,7 @@ public class EleveDaoImpl implements IEleveDao {
                         rs.getInt("id"),
                         rs.getString("nom"),
                         rs.getString("prenom"),
-                        rs.getDate("date_naissance"),  // Date de naissance
+                        rs.getDate("dateNaissance"),  // Date de naissance
                         rs.getString("classe"),
                         rs.getString("matricule")
                 );
